@@ -21,8 +21,8 @@ export const EventsScreen = () => {
             <section style={{
                 display: "flex",
                 flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center"
+                alignItems: "start",
+                justifyContent: "space-between",
             }}>
                 <Filter />
                 <SearchFilter />

@@ -8,7 +8,7 @@ import { RegisterScreen } from "../../screens/Auth/RegisterScreen";
 import { EventsScreen } from "../../screens/Main/EventsScreen";
 import { CreateEventScreen } from "../../screens/Main/CreateEventScreen";
 import { EventInfoScreen } from "../../screens/Main/EventInfoScreen";
-import { AccountScreen } from "../../screens/Main/AccountScreen";
+import { AllEventsMapScreen } from "../../screens/Main/AllEventsMapScreen";
 
 
 export function RoutesComponent() {
@@ -26,7 +26,7 @@ export function RoutesComponent() {
 					<Route path="/createEvent" element={ <CreateEventScreen /> } />
 					<Route path="/eventInfo" element={ <EventInfoScreen /> } />
 
-					<Route path='/account' element={ <AccountScreen /> } />
+					<Route path='/map' element={ <AllEventsMapScreen /> } />
 				</Route>
 			</Routes>
 		</Router>

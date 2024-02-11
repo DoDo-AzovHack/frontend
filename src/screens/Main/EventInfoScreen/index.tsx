@@ -7,6 +7,7 @@ import { checkAuth } from "../../../shared/tools/checkAuth"
 import { useEffect, useState } from "react"
 import { useQuery } from "react-query"
 import API from "../../../shared/API"
+import { Map } from "../../Map";
 
 
 export const EventInfoScreen = () => {
@@ -65,50 +66,84 @@ export const EventInfoScreen = () => {
 
     return (
         <>
-            <Link to="/events">
-                <LeftOutlined />
-                Назад
-            </Link>
+            <div style={{
+                marginTop: "1rem",
+                marginLeft: "1rem",
+            }}>
+                <Link to="/events">
+                    <LeftOutlined />
+                    Назад
+                </Link>
+            </div>
 
-            <div>
+            <div style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between"
+            }}>
                 <Header
                     size="xx-large"
                     align="left"
                     innerText={`${ data.title }`}
                 />
-                <Dropdown.Button menu={ menuProps } />
+                <div>
+                    <Dropdown.Button menu={ menuProps } style={{ marginRight: "1rem" }} />
+                </div>
             </div>
             
-
             {/* Photo */}
-            <div style={{
+            {/* <div style={{
                 width: "385px",
                 height: "212px",
 
                 backgroundColor: "gray"
-            }}>
+            }}> */}
 
-            </div>
+            {/* </div> */}
 
             {/* Yandex Maps API */}
-            <div></div>
+            <div style={{
+                width: "100vw",
+                height: "15rem",
+
+                padding: "1rem"
+            }}>
+                <Map width="100%" height="15rem" borderRadius="1rem"/>
+            </div>
 
             {/* Description */}
-            <div>
-                <h3> Описание </h3>
+            <div style={{
+                marginLeft: "1rem",
+                marginTop: "2rem",
+            }}>
+                <h1 style={{ marginBottom: "0.5rem" }}> Описание </h1>
                 <p> { data.description } </p>
             </div>
 
 
-            <h2> История действий </h2>
+            <section style={{
+                marginTop: "1rem",
+                marginInline: "1rem"
+            }}>
+            <h1 style={{
+                fontSize: "32px",
+                marginBottom: "0.5rem"
+            }}> История действий </h1>
             <Input
                 placeholder="Описание действия"
                 type="text"
-
+                
+                size="large"
                 value={ actionDesc || '' }
                 onChange={ e => setActionDesc(e.target.value) }
             />
             <Button
+                style={{
+                    width: "100%",
+                    marginTop: "0.5rem",
+                }}
+                size="large"
                 onClick={ () => {
                     API.CreateAction(eventNum, actionDesc)
                         .then(() => location.reload())
@@ -130,6 +165,7 @@ export const EventInfoScreen = () => {
                     <p> { el.description } </p>
                 </div>
             )) }
+            </section>
         </>
     )
 }

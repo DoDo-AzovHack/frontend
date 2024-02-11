@@ -15,15 +15,15 @@ export const UrgencyFilter = () => {
 
     const Tags: MenuProps['items'] = [
         {
-            label: 'Похуй',
+            label: 'Не срочно',
             key: '1',
         },
         {
-            label: 'Ну норм',
+            label: 'Срочно',
             key: '2',
         },
         {
-            label: 'Люто надо',
+            label: 'Очень срочно',
             key: '3',
         },
     ]

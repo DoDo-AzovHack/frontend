@@ -1,13 +1,26 @@
-import { useState, useRef, useMemo, useEffect, FC } from 'react';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck */
+import { useState, useRef, useMemo, useEffect, FC, ReactNode } from 'react';
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import { observer } from 'mobx-react';
 import MarkerPosStore from '../shared/store/MarkerPosStore';
+// import API from '../shared/API';
+
+// let latitude = 0
+// let longitude = 0
+
+
+// navigator.geolocation.getCurrentPosition(position => {
+//   latitude = position.coords.latitude
+//   longitude = position.coords.longitude
+// })
+// API.GetEventOne()
 
 const center = {
-    lat: 51.505,
-    lng: -0.09,
-  }
+  lat: 47.200084,
+  lng: 38.938626,
+}
 
 const DraggableMarker = observer(() => {
     const { setMarkerPos } = MarkerPosStore
@@ -62,9 +75,11 @@ interface IMapProps {
   width: string
   height: string
   borderRadius: string
+  nonDragable?: boolean
+  children?: ReactNode
 }
 
-export const Map: FC<IMapProps> = observer(({ width, height, borderRadius }) => {
+export const Map: FC<IMapProps> = observer(({ width, height, borderRadius, nonDragable, children}) => {
     // const { markerPos } = MarkerPosStore
 
     return (
@@ -72,7 +87,7 @@ export const Map: FC<IMapProps> = observer(({ width, height, borderRadius }) => 
           display: "flex",
           flexDirection: "column",
         }}>
-            <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}
+            <MapContainer center={[47.200084, 38.938626]} zoom={ 15 } scrollWheelZoom={true}
             style={{
               width,
               height,
@@ -86,7 +101,8 @@ export const Map: FC<IMapProps> = observer(({ width, height, borderRadius }) => 
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <DraggableMarker />
+                { nonDragable ? <></> : <DraggableMarker /> }
+                { children }
             </MapContainer>
             {/* { markerPos } */}
         </div>

@@ -5,7 +5,6 @@ import { useState } from "react"
 export const SearchFilter = () => {
     const [ search, setSearch ] = useState<string>("")
 
-
     return (
         <div style={{
             display: "flex",
@@ -14,20 +13,24 @@ export const SearchFilter = () => {
             justifyContent: "center"
         }}>
             <Input
-                // size="large"
-                placeholder="E-Mail"
+                style={{
+                    marginLeft: 0
+                }}
+                size="large"
+                placeholder="Название"
                 type="email"
 
                 value={ search || ''}
                 onChange={ e => setSearch(e.target.value) }
             />
             <Button
+                size="large"
                 onClick={ () => {
                     localStorage.setItem("q", search)
                     location.reload()
                 }}
             >
-                Submit
+                Найти
             </Button>
         </div>
     )

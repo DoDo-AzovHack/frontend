@@ -5,6 +5,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 /* Prevent font size inflation */
@@ -28,9 +30,16 @@ ol[role='list'] {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
-  line-height: 1.5;
+  height: 100vh;
+  overflow: hidden;
 }
+
+/* #root {
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+} */
 
 /* Set shorter line heights on headings and interactive elements */
 h1, h2, h3, h4,

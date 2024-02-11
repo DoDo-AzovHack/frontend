@@ -15,15 +15,15 @@ export const TagsFilter = () => {
 
     const Tags: MenuProps['items'] = [
         {
-            label: 'Море',
+            label: 'Пример 1',
             key: '1',
         },
         {
-            label: 'Пук',
+            label: 'Пример 2',
             key: '2',
         },
         {
-            label: 'Хз',
+            label: 'Пример 3',
             key: '3',
         },
     ]
@@ -34,7 +34,7 @@ export const TagsFilter = () => {
     }
 
     return (
-        <Dropdown menu={ menuProps } >
+        <Dropdown menu={ menuProps }>
             <Button>
                 <Space>
                     Тэги
