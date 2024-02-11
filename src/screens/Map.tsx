@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, useCallback, useEffect, FC } from 'react';
+import { useState, useRef, useMemo, useEffect, FC } from 'react';
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import { observer } from 'mobx-react';
@@ -12,7 +12,7 @@ const center = {
 const DraggableMarker = observer(() => {
     const { setMarkerPos } = MarkerPosStore
 
-    const [ draggable, setDraggable ] = useState(true)
+    const [ draggable ] = useState(true)
     const [ position, setPosition ] = useState(center)
 
     useEffect( () => {
@@ -26,6 +26,8 @@ const DraggableMarker = observer(() => {
         dragend() {
           const marker = markerRef.current
           if (marker != null) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             setPosition(marker.getLatLng())
             // setMarkerPos(position.lat, position.lng)
             // console.log(position.lat, position.lng)

@@ -118,6 +118,8 @@ export const EventInfoScreen = () => {
             >
                 Создать действие
             </Button>
+            {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore */}
             { data.actions.map(el => (
                 <div style={{ paddingBottom: "1rem" }}>
                     <div>

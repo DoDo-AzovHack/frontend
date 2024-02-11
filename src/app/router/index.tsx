@@ -9,8 +9,6 @@ import { EventsScreen } from "../../screens/Main/EventsScreen";
 import { CreateEventScreen } from "../../screens/Main/CreateEventScreen";
 import { EventInfoScreen } from "../../screens/Main/EventInfoScreen";
 import { AccountScreen } from "../../screens/Main/AccountScreen";
-import { Map } from "../../screens/Map";
-
 
 
 export function RoutesComponent() {
@@ -29,8 +27,6 @@ export function RoutesComponent() {
 
 					<Route path='/account' element={ <AccountScreen /> } />
 				</Route>
-
-				<Route path="/map" element={ <Map /> } />
 			</Routes>
 		</Router>
 	)
