@@ -153,18 +153,30 @@ export const EventInfoScreen = () => {
             >
                 Создать действие
             </Button>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column-reverse"
+                }}
+            >
             {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore */}
             { data.actions.map(el => (
-                <div style={{ paddingBottom: "1rem" }}>
+                <div style={{
+                    marginTop: "1rem",
+                    padding: "1rem",
+                    backgroundColor: "lightgray",
+                    borderRadius: "1rem"
+                }}>
                     <div>
                         {/* img */}
                         <div></div>
-                        <p> { el.author.name } </p>
+                        <p> <b> { el.author.name } </b> </p>
                     </div>
                     <p> { el.description } </p>
                 </div>
             )) }
+            </div>
             </section>
         </>
     )

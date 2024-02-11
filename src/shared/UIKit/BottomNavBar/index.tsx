@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import { Button } from "antd"
+// import { LogoutOutlined } from "@ant-design/icons"
 
 
 export const BottomNavBar = () => {
@@ -37,23 +39,36 @@ export const BottomNavBar = () => {
                 <div style={{
                     flexGrow: 2,
                     backgroundColor: "white",
+                    width: "10rem",
                     height: "3rem",
                     borderRadius: "1rem",
                 }}>
-                    Мероприятия
+                    {/* Мероприятия */}
                 </div>
             </Link>
 
             <Link to="/map">
-            <div style={{
+                <div style={{
                     width: "3rem",
                     height: "3rem",
                     backgroundColor: "white",
                     borderRadius: "1rem",
                 }}>
-                    Карта
                 </div>
             </Link>
+
+            <Button onClick={ () => {
+                localStorage.clear()
+                location.reload()
+            } } style={{
+                    width: "8rem",
+                    height: "3rem",
+                    backgroundColor: "white",
+                    borderRadius: "1rem",
+                }}>
+                    {/* <LogoutOutlined /> */}
+                    <b>Выйти</b>
+            </Button>
         </div>
     )
 }
