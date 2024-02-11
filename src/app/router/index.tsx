@@ -16,11 +16,12 @@ export function RoutesComponent() {
 		<Router>
 			<Routes>
                 <Route path="*" element={ <NotFoundScreen /> } />
+				<Route path="/" element={ <LoginScreen /> } />
 
-                <Route path="/login" element={ <LoginScreen /> } />
-                <Route path="/register" element={ <RegisterScreen /> } />
+				<Route path="/login" element={ <LoginScreen /> } />
+				<Route path="/register" element={ <RegisterScreen /> } />
 
-                <Route path='/' element={ <Layout /> }>
+                <Route element={ <Layout /> }>
 					<Route index path='/events' element={ <EventsScreen /> } />
 					<Route path="/createEvent" element={ <CreateEventScreen /> } />
 					<Route path="/eventInfo" element={ <EventInfoScreen /> } />
