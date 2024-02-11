@@ -30,7 +30,6 @@ export const BottomNavBar = () => {
                     backgroundColor: "white",
                     borderRadius: "1rem",
                 }}>
-                    Создать
                 </div>
             </Link>
 
